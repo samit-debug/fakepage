@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify code</title>
+</head>
+<body>
+  <main>
+    <h1>Enter verification code</h1>
+    {% if error %}<p role="alert">{{ error }}</p>{% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <label>6-digit code <input type="text" name="otp" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required></label>
+      <button type="submit">Verify</button>
+    </form>
+  </main>
+</body>
+</html>
